@@ -6,7 +6,7 @@
 #    By: chajjar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 15:47:50 by chajjar           #+#    #+#              #
-#    Updated: 2022/02/28 15:59:32 by chajjar          ###   ########.fr        #
+#    Updated: 2022/03/01 10:13:47 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,10 @@ SRCS = ft_atoi.c\
 	   ft_tolower.c\
 	   ft_isalnum.c\
 	   ft_lstnew.c\
+	   ft_memchr.c\
 	   ft_putendl_fd.c\
 	   ft_striteri.c\
-	   ft_strncomp.c\
+	   ft_strncmp.c\
 	   ft_toupper.c\
 	   ft_isalpha.c\
 	   ft_memcmp.c\

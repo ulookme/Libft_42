@@ -6,13 +6,13 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 11:24:10 by chajjar           #+#    #+#             */
-/*   Updated: 2022/02/22 12:20:52 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/01 10:34:31 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isapla(int c)
+int	ft_isalpha(int c)
 {
 	if ((c > 64 && c < 91) || (c > 96 && c <= 122))
 		return (1);

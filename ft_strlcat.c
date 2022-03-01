@@ -6,7 +6,7 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 11:08:03 by chajjar           #+#    #+#             */
-/*   Updated: 2022/02/23 13:58:06 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/01 11:04:39 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = 0;
 	t1 = ft_strlen(dst);
 	t2 = ft_strlen(src);
+	if (size == 0)
+		return (t2);
 	if (size - 1 <= t1)
 		return (t2 + size);
+	else
+		return (t2 + t1);
 	while (t1 + i < size - 1)
 	{
 		dst[t1 + i] = src[i];
