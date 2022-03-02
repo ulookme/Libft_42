@@ -6,7 +6,7 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 16:12:32 by chajjar           #+#    #+#             */
-/*   Updated: 2022/03/01 13:29:09 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/02 09:41:52 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	ptr = NULL;
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			ptr = (char *)s;
 		s++;
 	}
-	if (c == '\0')
+	if ((char)c == *s)
 		return ((char *)s);
 	return (ptr);
 }

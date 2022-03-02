@@ -6,67 +6,57 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:03:12 by chajjar           #+#    #+#             */
-/*   Updated: 2022/03/01 14:01:56 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/02 15:53:44 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*if_pos(int n, int count)
+static int	ft_nblen(int n)
 {
-	char	*str;
+	int	len;
 
-	str = (char *)malloc(sizeof(char) * (count + 1));
-	if (str == NULL)
-		return (NULL);
-	str[count] = '\0';
-	while (--count >= 0)
+	len = 0;
+	if (n < 0)
 	{
-		str[count] = (n % 10) + '0';
-		n /= 10;
+		n = -n;
+		len++;
 	}
-	return (str);
-}
-
-static int	ft_countdigit(long long n)
-{
-	size_t	count;
-
-	count = 0;
+	if (n == 0)
+		return (1);
 	while (n != 0)
 	{
 		n = n / 10;
-		++count;
+		len++;
 	}
-	return (count);
-}
-
-static char	*if_neg(int n, int count)
-{
-	char	*str;
-	size_t	num;
-
-	str = (char *)malloc(sizeof(char) * (count + 2));
-	if (str == NULL)
-		return (NULL);
-	num = n * -1;
-	str[count + 1] = '\0';
-	while (count)
-	{
-		str[count] = (num % 10) + '0';
-		count--;
-		num /= 10;
-	}
-	str[0] = '-';
-	return (str);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	int	count;
+	unsigned int	nbr;
+	int				sign;
+	int				len;
+	char			*str;
 
-	count = ft_countdigit(n);
+	sign = 0;
 	if (n < 0)
-		return (if_neg(n, count));
-	return (if_pos(n, count));
+	{
+		sign = 1;
+		n = -n;
+	}
+	nbr = n;
+	len = ft_nblen(n);
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len--] = '\0';
+	while (len >= 0)
+	{
+		str[len--] = nbr % 10 + '0';
+		nbr /= 10;
+	}
+	if (sign == 1)
+		str[0] = '-';
+	return (str);
 }
