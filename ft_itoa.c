@@ -6,7 +6,7 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:03:12 by chajjar           #+#    #+#             */
-/*   Updated: 2022/02/28 06:02:32 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/01 14:01:56 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ static char	*if_neg(int n, int count)
 	char	*str;
 	size_t	num;
 
-	str = NULL;
 	str = (char *)malloc(sizeof(char) * (count + 2));
 	if (str == NULL)
 		return (NULL);
