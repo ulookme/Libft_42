@@ -6,7 +6,7 @@
 #    By: chajjar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 15:47:50 by chajjar           #+#    #+#              #
-#    Updated: 2022/03/01 10:13:47 by chajjar          ###   ########.fr        #
+#    Updated: 2022/03/02 17:43:28 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,10 @@ OBJECT = $(SRCS:.c=.o)
 .c.o :
 	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
+all : $(NAME)
 
 $(NAME): $(OBJECT) $(HEADERS)
-	@ar rc $(NAME)  $(OBJECT)
-	@ranlib $(NAME)
+	@ar rcs $(NAME)  $(OBJECT)
 
 
 clean:
