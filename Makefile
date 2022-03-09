@@ -6,7 +6,7 @@
 #    By: chajjar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 15:47:50 by chajjar           #+#    #+#              #
-#    Updated: 2022/03/02 17:43:28 by chajjar          ###   ########.fr        #
+#    Updated: 2022/03/09 14:23:15 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ SRCS = ft_atoi.c\
 	   ft_strmapi.c\
 	   ft_tolower.c\
 	   ft_isalnum.c\
-	   ft_lstnew.c\
 	   ft_memchr.c\
 	   ft_putendl_fd.c\
 	   ft_striteri.c\
@@ -52,15 +51,27 @@ SRCS = ft_atoi.c\
 	   ft_strlcat.c\
 	   ft_strrchr.c\
 
+B_SRC = ft_lstnew.c\
+	   	ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+
 OBJECT = $(SRCS:.c=.o)
 
+B_OBJS = ${B_SRCS:.c=.o}
+
 .c.o :
-	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+	  	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 all : $(NAME)
 
-$(NAME): $(OBJECT) $(HEADERS)
-	@ar rcs $(NAME)  $(OBJECT)
+$(NAME): 	$(OBJECT) $(HEADERS)
+			@ar rcs $(NAME)  $(OBJECT)
+
+_bonus:		$(OBJECT) ${B_OBJS}
+			@ar rcs ${NAME} $(OBJECT) ${B_OBJS}
+			
 
 
 clean:

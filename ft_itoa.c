@@ -6,57 +6,60 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 14:03:12 by chajjar           #+#    #+#             */
-/*   Updated: 2022/03/02 15:53:44 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/09 08:48:44 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nblen(int n)
+static char	*ft_array(char *x, unsigned int number, long int len)
+{
+	while (number > 0)
+	{
+		x[len--] = 48 + (number % 10);
+		number = number / 10;
+	}
+	return (x);
+}
+
+static long int	ft_len(int n)
 {
 	int	len;
 
 	len = 0;
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	if (n == 0)
-		return (1);
+	if (n <= 0)
+		len = 1;
 	while (n != 0)
 	{
-		n = n / 10;
 		len++;
+		n = n / 10;
 	}
 	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	unsigned int	nbr;
-	int				sign;
-	int				len;
-	char			*str;
+	char			*x;
+	unsigned int	number;
+	long int		len;
+	int				neg;
 
-	sign = 0;
+	neg = 1;
+	len = ft_len(n);
+	x = malloc(sizeof(char) * (len + 1));
+	if (!(x))
+		return (NULL);
+	x[len--] = '\0';
+	if (n == 0)
+		x[0] = '0';
 	if (n < 0)
 	{
-		sign = 1;
-		n = -n;
+		neg *= -1;
+		number = n * neg;
+		x[0] = '-';
 	}
-	nbr = n;
-	len = ft_nblen(n);
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	str[len--] = '\0';
-	while (len >= 0)
-	{
-		str[len--] = nbr % 10 + '0';
-		nbr /= 10;
-	}
-	if (sign == 1)
-		str[0] = '-';
-	return (str);
+	else
+		number = n;
+	x = ft_array(x, number, len);
+	return (x);
 }
