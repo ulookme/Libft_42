@@ -6,7 +6,7 @@
 #    By: chajjar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 15:47:50 by chajjar           #+#    #+#              #
-#    Updated: 2022/03/09 14:23:15 by chajjar          ###   ########.fr        #
+#    Updated: 2022/03/09 17:26:29 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ all : $(NAME)
 $(NAME): 	$(OBJECT) $(HEADERS)
 			@ar rcs $(NAME)  $(OBJECT)
 
-_bonus:		$(OBJECT) ${B_OBJS}
+bonus:		$(OBJECT) ${B_OBJS}
 			@ar rcs ${NAME} $(OBJECT) ${B_OBJS}
 			
 
