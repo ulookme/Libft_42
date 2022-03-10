@@ -6,7 +6,7 @@
 #    By: chajjar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 15:47:50 by chajjar           #+#    #+#              #
-#    Updated: 2022/03/09 17:26:29 by chajjar          ###   ########.fr        #
+#    Updated: 2022/03/10 18:23:32 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,11 +51,15 @@ SRCS = ft_atoi.c\
 	   ft_strlcat.c\
 	   ft_strrchr.c\
 
-B_SRC = ft_lstnew.c\
+B_SRCS = ft_lstnew.c\
 	   	ft_lstadd_front.c\
 		ft_lstsize.c\
 		ft_lstlast.c\
 		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c\
 
 OBJECT = $(SRCS:.c=.o)
 
@@ -66,21 +70,21 @@ B_OBJS = ${B_SRCS:.c=.o}
 
 all : $(NAME)
 
-$(NAME): 	$(OBJECT) $(HEADERS)
-			@ar rcs $(NAME)  $(OBJECT)
+$(NAME): 	$(OBJECT) $(B_OBJS)
+			@ar rcs $(NAME)  $(OBJECT) $(B_OBJS)
 
-bonus:		$(OBJECT) ${B_OBJS}
-			@ar rcs ${NAME} $(OBJECT) ${B_OBJS}
+bonus:		$(OBJECT) $(B_OBJS)
+			@ar rcs ${NAME} $(OBJECT) $(B_OBJS)
 			
 
 
 clean:
-	@rm -rf $(OBJECT)
+	@rm -rf $(OBJECT) $(B_OBJS)
 
 fclean: clean
 	@rm -rf $(NAME)
 
 re : fclean all
 
-.PHONY: re clean fclean
+.PHONY: re clean fclean bonus
 
