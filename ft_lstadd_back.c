@@ -6,7 +6,7 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 09:54:34 by chajjar           #+#    #+#             */
-/*   Updated: 2022/03/10 10:32:44 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/10 19:04:31 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,8 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*elem;
-	t_list	*next;
-
-	next = NULL;
-	if (lst == NULL)
-	{
+	if (*lst)
+		ft_lstlast(*lst)->next = new;
+	else
 		*lst = new;
-		return ;
-	}
-	if (lst != NULL || *lst != NULL)
-	{
-		elem = *lst;
-		elem = ft_lstlast(*lst);
-		elem->next = new;
-		return ;
-	}
-	*lst = next;
 }

@@ -6,7 +6,7 @@
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 09:59:52 by chajjar           #+#    #+#             */
-/*   Updated: 2022/03/03 17:34:32 by chajjar          ###   ########.fr       */
+/*   Updated: 2022/03/10 19:07:03 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	}
 	new->next = *lst;
+	*lst = new;
 }
