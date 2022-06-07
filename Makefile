@@ -6,7 +6,7 @@
 #    By: chajjar <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/28 15:47:50 by chajjar           #+#    #+#              #
-#    Updated: 2022/03/10 18:23:32 by chajjar          ###   ########.fr        #
+#    Updated: 2022/06/07 15:52:26 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,16 @@ FLAGS = -Wall -Wextra -Werror
 
 NAME = libft.a
 
-SRCS = ft_atoi.c\
-   	   ft_isdigit.c\
-   	   ft_memmove.c\
-	   ft_split.c\
-   	   ft_strlcpy.c\
-   	   ft_strtrim.c\
-       ft_bzero.c\
-	   ft_isprint.c\
-	   ft_memset.c\
-	   ft_strchr.c\
+SRCS = ft_atoi.c ft_base16.c \
+   	   ft_isdigit.c ft_printf.c \
+   	   ft_memmove.c ft_printhexa.c \
+	   ft_split.c ft_read.c \
+   	   ft_strlcpy.c ft_search2.c \
+   	   ft_strtrim.c ft_base10.c \
+       ft_bzero.c ft_format.c \
+	   ft_isprint.c ft_put_elem.c \
+	   ft_memset.c ft_search.c \
+	   ft_strchr.c get_next_line.c \
 	   ft_strlen.c\
 	   ft_substr.c\
 	   ft_calloc.c\

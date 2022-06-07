@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_base10.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajjar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 17:20:35 by chajjar           #+#    #+#             */
-/*   Updated: 2022/02/23 17:47:15 by chajjar          ###   ########.fr       */
+/*   Created: 2022/03/23 15:32:04 by chajjar           #+#    #+#             */
+/*   Updated: 2022/03/23 22:24:31 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_intlen_base10(long long nb)
 {
-	size_t	i;
+	long long	i;
+	long long	number;
+	int			neg;
 
-	if (n == 0)
-		return (0);
 	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-		++i;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	number = 0;
+	neg = 0;
+	if (!nb)
+		return (1);
+	if (nb < 0)
+	{
+		neg = 1;
+		number = -nb;
+	}
+	else
+		number = nb;
+	while (number)
+	{
+		number /= 10;
+		i++;
+	}
+	return (i + neg);
 }
